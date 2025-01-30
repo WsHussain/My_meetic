@@ -1,18 +1,20 @@
 <?php
-class hashedPass
-{
 
+include 'db.php';
+
+class HashedPass
+{
     public function hash($pwd)
     {
         return password_hash($pwd, PASSWORD_DEFAULT);
-
     }
 
-    public function samePwd($pwd, $hsh){
+    public function samePwd($pwd, $hsh)
+    {
         if (password_verify($pwd, $hsh)) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 }
