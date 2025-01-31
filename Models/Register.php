@@ -1,19 +1,25 @@
 <?php 
 
+include 'db.php';
+
 class Register {
     private $db;
 
     public function __construct() {
+        $this->db = my_db();
     }
 
     public function registerUser($username, $email, $password) {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $query = "INSERT INTO user (username, email, password) VALUES (:username, :email, :password)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $hashedPassword);
-        return $stmt->execute();
+        try {
+
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $query = "INSERT INTO user (firstName, mail, password) VALUES ('$username', '$email', '$hashedPassword')";
+        
+        $res = $this->db->query($query);
+        var_dump($res);
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     public function isEmailTaken($email) {

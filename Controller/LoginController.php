@@ -1,31 +1,21 @@
 <?php
 
-include 'db.php';
+include 'Models/Register.php';
 
 class RegisterController
 {
-    private $db;
+    private $register_controller;
 
     public function __construct($db)
     {
-        $this->db = $db;
+        $this->register_controller = new Register();
     }
 
     public function register($username, $password, $email)
     {
-
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
-        $stmt = $this->db->prepare("INSERT INTO user (username, password, email) VALUES (:username, :password, :email)");
-
-        $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $hashedPassword);
-        $stmt->bindParam(':email', $email);
-
-        if ($stmt->execute()) {
-            return "Utilisateur enregistré avec succès !";
-        } else {
-            return "Erreur : Impossible d'enregistrer l'utilisateur.";
-        }
+        echo "tototottotoo";
+        $this->register_controller->registerUser($username, $password, $email);
+        header('Location: /');
+        
     }
 }
