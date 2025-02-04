@@ -1,28 +1,6 @@
 <?php
 
-include "Models/Register.php";
-include "Models/Login.php";
-
-if (isset($_GET['disconnect'])) {
-    unset($_SESSION['connect']);
-}
-if (session_status() !== 2) {
-    session_start();
-}
-if (isset($_POST['connect'])) {
-    if (isset($_SESSION['connect']) && $_SESSION['connect'] != null) {
-        header("Location: Views/LoginView.php");
-        exit;
-    }
-}
-if (isset($_POST['submit'])) {
-    $login = new Login($_POST['username'], $_POST['password']);
-    if ($register->checkRegister()) {
-        $_SESSION['connect'] = $register->id;
-        header("Location: Views/RegisterView.php");
-        exit;
-    }
-}
+include ("Controller/LoginController.php");
 
 ?>
         <!DOCTYPE html>

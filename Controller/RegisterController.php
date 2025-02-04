@@ -11,18 +11,12 @@ class RegisterController
         $this->registerModel = new Register();
     }
 
-    public function register($username, $email, $password) {
-       $res = $this->registerModel->registerUser($username, $email, $password);
-       //var_dump($res);
-       //header('Location: /');
-        
+    public function register($username, $email, $password, $firstname, $lastname, $age, $city, $gender) {
+        if (empty($username) || empty($email) || empty($password) || empty($firstname) || empty($lastname) || empty($age) || empty($city) || empty($gender)) { 
+            throw new Exception('Tous les champs sont obligatoires.');
+        }
+        $this->registerModel->registerUser($username, $email, $password, $firstname, $lastname, $age, $city, $gender);
     }
 }
-
-// $registerController = new RegisterController($db);
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $registerController->register();
-// }
 
 ?>

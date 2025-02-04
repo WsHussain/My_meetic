@@ -1,21 +1,23 @@
 <?php
 
-include 'Models/Register.php';
+include 'Models/Login.php';
 
-class RegisterController
-{
-    private $register_controller;
+class LoginController {
+    private $login;
 
-    public function __construct($db)
-    {
-        $this->register_controller = new Register();
+    public function __construct($db) {
+        $this->login = new Login($db);
     }
 
-    public function register($username, $password, $email)
-    {
-        echo "tototottotoo";
-        $this->register_controller->registerUser($username, $password, $email);
-        header('Location: /');
-        
+    public function login($username, $password) {
+        $user = $this->login->authenticate($username, $password);
+        if ($user) {
+            // Start session and set user data
+            session_start();
+            $_SESSION['user'] = $user;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
