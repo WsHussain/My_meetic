@@ -1,8 +1,9 @@
 <?php
 
-include 'Controller/RegisterController.php';
+include './Controller/RegisterController.php';
 
 if(isset($_POST['submit'])){
+    
     $register = new RegisterController();
     $register->register(
         $_POST['username'], 

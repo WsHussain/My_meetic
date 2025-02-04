@@ -11,7 +11,7 @@ class Register {
     public function registerUser($firstname,$lastname,$age,$city,$gender,$username, $email, $password) {
         try {
 
-            include 'config/db.php';
+            require_once './config/db.php';
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $query = $pdo -> prepare ("INSERT INTO user (username, firstname, lastname, age, city, email, password) 
             VALUES ('$username', '$email', '$hashedPassword','$firstname','$lastname','$age','$city','$gender')");

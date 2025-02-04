@@ -1,13 +1,12 @@
 <?php
 
-//require 'LoginController.php';
-include 'Models/Register.php';
+require_once './Models/Register.php';
 
 class RegisterController
 {
     private $registerModel;
 
-    public function __construct() {
+    public function __construct(){
         $this->registerModel = new Register();
     }
 
