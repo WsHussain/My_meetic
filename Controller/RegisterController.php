@@ -1,6 +1,6 @@
 <?php
 
-require_once './Models/Register.php';
+require_once '../Models/Register.php';
 
 class RegisterController
 {
@@ -15,6 +15,7 @@ class RegisterController
             throw new Exception('Tous les champs sont obligatoires.');
         }
         $this->registerModel->registerUser($username, $email, $password, $firstname, $lastname, $age, $city, $gender);
+        header ('Location: /sucess');
     }
 }
 

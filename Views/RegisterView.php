@@ -1,19 +1,20 @@
 <?php
 
-include './Controller/RegisterController.php';
+include '../Controller/RegisterController.php';
 
 if(isset($_POST['submit'])){
-    
+
     $register = new RegisterController();
     $register->register(
-        $_POST['username'], 
-        $_POST['email'], 
-        $_POST['password'], 
-        $_POST['firstname'], 
-        $_POST['lastname'], 
-        $_POST['age'], 
-        $_POST['city'], 
-        $_POST['gender']
+        $_POST['username'],
+        $_POST['email'],
+        $_POST['password'],
+        $_POST['firstname'],
+       $_POST['lastname'],
+       $_POST['age'],
+       $_POST['city'],
+       $_POST['gender']
+
     );
 }
 
@@ -36,16 +37,17 @@ if(isset($_POST['submit'])){
                 <input type="password" name="password" placeholder="Mot de passe" required><br>
                 <input type="text" name="firstname" placeholder="Prénom" required><br>
                 <input type="text" name="lastname" placeholder="Nom" required><br>
-                <input type="number" name="age" placeholder="Age" required><br>
+                <input type="date" name="age" placeholder="Age" required><br>
                 <input type="text" name="city" placeholder="Ville" required><br>
                 <select name="gender" required>
                     <option value="" disabled selected>Genre</option>
-                    <option value="male">Homme</option>
-                    <option value="female">Femme</option>
-                    <option value="other">Autre</option>
+                    <option value="H">Homme</option>
+                    <option value="F">Femme</option>
+                    <option value="O">Autre</option>
                 </select><br>
                 <input type="submit" name="submit" value="S'inscrire"><br>
             </form>
+            <p> <?php if ($error) echo $error; ?> </p>
         </div>
     </body>
 </html>

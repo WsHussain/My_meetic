@@ -1,11 +1,10 @@
 <?php
 
-include ("./Controller/LoginController.php");
+require ("../Controller/LoginController.php");
 
-if (isset ($_POST['username']) && isset ($_POST['password'])) {
-    $loginController = new LoginController($db); 
-    $loginController->login($username, $password);
-    header('Location: /');
+if (isset ($_POST['email'])){
+    $loginController = new LoginController(); 
+    $loginController->login($_POST['email'], $_POST['password']);
 }
 
 ?>
@@ -17,8 +16,8 @@ if (isset ($_POST['username']) && isset ($_POST['password'])) {
     <body>
         <h2>Login</h2>
         <form method="post" action="">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
             <br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>

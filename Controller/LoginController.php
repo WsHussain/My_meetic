@@ -1,25 +1,26 @@
 <?php
 
-require_once './Models/Login.php';
+require_once '../Models/Login.php';
 
 class LoginController {
     private $login;
 
-    public function __construct($db) {
-        $this->login = new Login($db);
+    public function __construct() {
+        $this->login = new Login();
 
     
     }
 
-    public function login($username, $password) {
-        $user = $this->login->authenticate($username, $password);
-        if ($user == 1) {
-            // Start session and set user data
+    public function login($email, $password) {
+        $user = $this->login->authenticate($email, $password);
+        //var_dump($user);
+        if ($user[0]["id"]) {
             session_start();
-            $_SESSION['user'] = $user;
-            header('Location: /profile');
+            $_SESSION['user'] = $user[0];
+            header('Location: /sucess');
+            exit();
         } else {
-            return false;
+            header('Location: /error');
         }
     }
 }
