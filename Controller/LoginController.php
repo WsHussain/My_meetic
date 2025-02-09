@@ -13,9 +13,8 @@ class LoginController {
 
     public function login($email, $password) {
         $user = $this->login->authenticate($email, $password);
-        //var_dump($user);
+        var_dump($user);
         if ($user[0]["id"]) {
-            session_start();
             $_SESSION['user'] = $user[0];
             header('Location: /sucess');
             exit();

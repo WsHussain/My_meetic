@@ -21,7 +21,7 @@ CREATE TABLE user (
 );
 
 INSERT INTO user (id, image, username, firstname, lastname, age, gender, gendersearch, city, postalCode, email, password) VALUES
-(1, NULL, 'John Doe', 'John', 'Doe', '1990-01-01', 'M', 'F', 'Paris', 75001, 'john.doe@example.com', '$2y$10$uREBxq0WiMLdqKcY00TTg.cDJhTybCs3OL7NbQlVvTiCj9GIE0ae6'),
+(1, NULL, 'John Doe', 'John', 'Doe', '1990-01-01', 'M', 'F', 'Paris', 75001, 'john.doe@example.com', 'password1'),
 (2, NULL, 'Jane Doe', 'Jane', 'Doe', '1991-02-01', 'F', 'M', 'Paris', 75002, 'jane.doe@example.com', '$2y$10$qC31K/RWZN2/SgCkA59g7uEzTS7VJqxx1Z/9YVfXxg/oMK4tCd5c.'),
 (3, NULL, 'Alice Smith', 'Alice', 'Smith', '1992-03-01', 'F', 'M', 'Lyon', 69001, 'alice.smith@example.com', '$2y$10$e8Go4eKkc49mRZaugsZcd.MWTo30He3EyurEETUOufRYroty1i/sm'),
 (4, NULL, 'Bob Smith', 'Bob', 'Smith', '1993-04-01', 'M', 'F', 'Lyon', 69002, 'bob.smith@example.com', '$2y$10$8iX1u7WFwl/SAzrxkNvS7ORD76ic/5GijK0chnuG9vfNXjD4Q2KPC'),

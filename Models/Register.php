@@ -12,7 +12,7 @@ class Register {
     public function registerUser($username, $email, $password, $firstname, $lastname, $age, $city, $gender) {
         try {
 
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $hashedPassword = hash("sha256",$password);
             $query = $this->db->prepare ("INSERT INTO user (username, firstname, lastname, age, city, email, password, gender) 
             VALUES ('$username', '$firstname', '$lastname', '$age', '$city', '$email', '$hashedPassword' , '$gender')");
 

@@ -6,7 +6,7 @@
 // {
 //     public function hash($psw)
 //     {
-//         return password_hash($password, PASSWORD_DEFAULT);
+//         return password_hash($psw, PASSWORD_DEFAULT);
 //     }
 
 //     public function samePwd($password, $hsh)
@@ -16,5 +16,5 @@
 //         } else {
 //             return false;
 //         }
-//     }
+//      }
 // }
